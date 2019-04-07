@@ -96,7 +96,7 @@ export class RepositoryService<T> extends RestfulService<T> {
    * @param data
    * @param params
    */
-  public async createOne(data: T, params: FilterParamParsed[]): Promise<T> {
+  public async createOne(data: DeepPartial<T>, params: FilterParamParsed[]): Promise<T> {
     const entity = this.plainToClass(data, params);
 
     if (!entity) {
@@ -318,7 +318,7 @@ export class RepositoryService<T> extends RestfulService<T> {
     return builder;
   }
 
-  private plainToClass(data: T, params: FilterParamParsed[] = []): T {
+  private plainToClass(data: DeepPartial<T>, params: FilterParamParsed[] = []): T {
     if (!isObject(data)) {
       return undefined;
     }

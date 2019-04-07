@@ -15,7 +15,7 @@ export declare class RepositoryService<T> extends RestfulService<T> {
     decidePagination(query: RequestParamsParsed, mergedOptions: RestfulOptions): boolean;
     getMany(query?: RequestParamsParsed, options?: RestfulOptions): Promise<GetManyDefaultResponse<T> | T[]>;
     getOne({ fields, join, cache }?: RequestParamsParsed, options?: RestfulOptions): Promise<T>;
-    createOne(data: T, params: FilterParamParsed[]): Promise<T>;
+    createOne(data: DeepPartial<T>, params: FilterParamParsed[]): Promise<T>;
     createMany(data: {
         bulk: DeepPartial<T>[];
     }, params?: FilterParamParsed[]): Promise<T[]>;
